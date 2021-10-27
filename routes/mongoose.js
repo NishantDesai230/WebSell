@@ -8,4 +8,17 @@ connect.on('open', () => {
     console.log('database connected....');
 });
 
-module.exports = mongoose;
+const WebDb = new mongoose.Schema({
+    username:{type:String,unique:true},
+    url:{type:String,unique:true},
+    webType:String,
+    Description:String,
+    Contact:Number
+});
+
+const WebInfo = new mongoose.model("website_info",WebDb);
+
+module.exports = 
+{
+    Web_info: WebInfo
+};
